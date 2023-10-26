@@ -1,0 +1,17 @@
+[package]
+name = "universal-wallpad-bridge"
+description = "Universal Wallpad Serial Bridge over MQTT (including the Broker)"
+authors = ["blackis0 (blkis0)"]
+
+version = "0.1.0"
+edition = "2021"
+
+repository = "https://github.com/blkis0/universal-wallpad-bridge"
+readme = "README.md"
+
+[dependencies]
+clap = "4.4.6"
+config = "0.13.3"
+rumqttd = "0.18.0"
+serialport = "4.2.2"
+tracing-subscriber = "0.3.17"
