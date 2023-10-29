@@ -77,6 +77,10 @@ fn main() {
                     if tk.is_some() {
                         tasks.push(tk.unwrap());
                     }
+
+                    if !args.various {
+                        t.subscribe(&mut link_tx)
+                    }
                 }
             }
         }
