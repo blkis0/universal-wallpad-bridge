@@ -10,14 +10,6 @@ See [MQTT Device Topic Reference (Preparing)]() when connecting to other MQTT cl
 
 Please submit a pull request for incorrect translations. Thank you.
 
-## Known Issues
-
-### v0.1.0
-
-- Nothing
-
-<br>
-
 ## Quick Start
 
 

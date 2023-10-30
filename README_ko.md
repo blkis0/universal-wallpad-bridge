@@ -8,14 +8,6 @@ HomeAssistant를 사용 중 이라면 [HomeAssistant 연결 가이드 (준비중
 
 다른 MQTT 클라이언트를 사용한다면 [MQTT 장치 토픽 레퍼런스 (준비중)]()를 참고하세요.
 
-## 알려진 이슈
-
-### v0.1.0
-
-- 없음
-
-<br>
-
 ## 시작하기
 
 자신의 환경에 맞는 빌드를 [다운로드](https://github.com/blkis0/universal-wallpad-bridge/releases) 하세요.
