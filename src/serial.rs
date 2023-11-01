@@ -23,7 +23,7 @@ pub struct Serial<T> where T: SerialPacket {
     pub rx: Receiver<T>,
 
     pub millis: Duration,
-    pub print_variois: bool
+    pub print_various: bool
 }
 
 pub trait ISerial<T: SerialPacket> {
@@ -238,6 +238,6 @@ impl ISerial<HyundaiPacket> for Serial<HyundaiPacket> {
         &self.millis
     }
 
-    fn various(&self) -> bool { self.print_variois }
+    fn various(&self) -> bool { self.print_various }
 }
 
