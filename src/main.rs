@@ -97,7 +97,8 @@ fn main() {
             args.primary_port, 
             pri_pkt_handlers, 
             a_link_tx.clone(),
-            Duration::from_millis(10)
+            Duration::from_millis(10),
+            args.various
         )
     };
 
@@ -108,7 +109,8 @@ fn main() {
                     args.second_port.unwrap(), 
                     sec_pkt_handlers,
                     a_link_tx,
-                    Duration::from_millis(800)
+                    Duration::from_millis(800),
+                    args.various
                 );
 
                 (Some(s.0), Some(s.1))
@@ -197,12 +199,13 @@ fn create_broker(config_path: &str, various: bool) -> (Broker, LinkRx, LinkTx) {
     (broker, link_rx, link_tx)
 }
 
-fn create_serial<T: SerialPacket + Sized>(port_path: String, pkt_handlers: Vec<Box<dyn PacketHandler<T> + Send>>, link_tx: Arc<Mutex<LinkTx>>, delay: Duration) -> (Serial<T>, Channels<T>) where Serial<T>: ISerial<T> {
+fn create_serial<T: SerialPacket + Sized>(port_path: String, pkt_handlers: Vec<Box<dyn PacketHandler<T> + Send>>, link_tx: Arc<Mutex<LinkTx>>, delay: Duration, print_various: bool) -> (Serial<T>, Channels<T>) where Serial<T>: ISerial<T> {
     let serial: Serial<T> = Serial::<T>::new(
         port_path, 
         pkt_handlers,
         link_tx,
-        delay
+        delay,
+        print_various
     );
 
     let c = serial.channels.clone();

@@ -22,12 +22,12 @@ pub struct Serial<T> where T: SerialPacket {
 
     pub rx: Receiver<T>,
 
-    pub millis: Duration
-
+    pub millis: Duration,
+    pub print_variois: bool
 }
 
 pub trait ISerial<T: SerialPacket> {
-    fn new(path: String, handlers: Vec<Box<dyn PacketHandler<T> + Send>>, link_tx: Arc<Mutex<LinkTx>>, delay: Duration) -> Serial::<T> {
+    fn new(path: String, handlers: Vec<Box<dyn PacketHandler<T> + Send>>, link_tx: Arc<Mutex<LinkTx>>, delay: Duration, print_various: bool) -> Serial::<T> {
         let (tx, rx) = mpsc::channel();
 
         Serial::<T> {
@@ -39,7 +39,8 @@ pub trait ISerial<T: SerialPacket> {
             handlers: handlers,
             channels: Channels { link_tx: link_tx, serial_tx: tx },
             rx: rx,
-            millis: delay
+            millis: delay,
+            print_various
         }
     }
 
@@ -48,6 +49,7 @@ pub trait ISerial<T: SerialPacket> {
     fn handlers(&self) -> &Vec<Box<dyn PacketHandler<T> + Send>>;
     fn channels(&self) -> &Channels<T>;
     fn rx(&self) -> &Receiver<T>;
+    fn various(&self) -> bool;
 
     fn prefix(&self) -> &'static [u8];
     fn suffix(&self) -> &'static [u8];
@@ -85,7 +87,9 @@ pub trait ISerial<T: SerialPacket> {
                         match port.read(&mut tmp) {
                             Ok(l) => {
                                 let ref_tmp = &tmp[0..l];      
-                                println!("{:?} {:?}", self.path(), ref_tmp);
+                                if self.various() {
+                                    println!("{:?} {:?}", self.path(), ref_tmp);
+                                }
 
                                 if !buf.is_empty() {
                                     if ref_tmp.ends_with(self.suffix()) {
@@ -233,5 +237,7 @@ impl ISerial<HyundaiPacket> for Serial<HyundaiPacket> {
     fn millis(&self) -> &Duration {
         &self.millis
     }
+
+    fn various(&self) -> bool { self.print_variois }
 }
 
