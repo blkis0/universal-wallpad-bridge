@@ -24,16 +24,16 @@ impl RealtimeEnergyMeter<HyundaiPacket> {
                         let mut result = Ok(0);
 
                         if data.electric.is_some() {
-                            result = link_tx.publish("energy/electric", data.electric.unwrap().to_string());
+                            result = link_tx.publish("electric/meter", data.electric.unwrap().to_string());
                             
                         }
 
                         if data.water.is_some() {
-                            result = result.and(link_tx.publish("energy/water", data.water.unwrap().to_string()));
+                            result = result.and(link_tx.publish("water/meter", data.water.unwrap().to_string()));
                         }
 
                         if data.gas.is_some() {
-                            result = result.and(link_tx.publish("energy/gas", data.gas.unwrap().to_string()));
+                            result = result.and(link_tx.publish("gas/meter", data.gas.unwrap().to_string()));
                         }
 
                         if result.is_err() {
