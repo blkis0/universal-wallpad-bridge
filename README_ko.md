@@ -6,7 +6,7 @@
 
 HomeAssistant를 사용 중 이라면 [HomeAssistant 연결 가이드 (준비중)]()를 참고하세요.
 
-다른 MQTT 클라이언트를 사용한다면 [MQTT 장치 토픽 레퍼런스 (준비중)]()를 참고하세요.
+다른 MQTT 클라이언트를 사용한다면 [MQTT 장치 토픽 스펙 (영문)]를 참고하세요.
 
 ## 시작하기
 
@@ -42,7 +42,7 @@ Linux
 
 ### 더 알아보기
 
-- [MQTT 장치 토픽 레퍼런스 (준비중)]()
+- [MQTT 장치 토픽 스펙 (영문)]
 - [rumqttd 저장소 (Github)](https://github.com/bytebeamio/rumqtt/tree/main/rumqttd)
 - [앱을 Docker에서 사용하는 방법 (준비중)]()
 
@@ -97,3 +97,6 @@ O|realtime_energy_meter|실시간 에너지 사용량|자동 조회 센서|-
 -|lights|일괄 소등|-|개발 중
 -|doorlock|디지털 도어락|-|개발 중
 <br>
+
+
+[MQTT 장치 토픽 스펙 (영문)]: https://github.com/blkis0/universal-wallpad-bridge/wiki/MQTT-Device-Topic-Specification

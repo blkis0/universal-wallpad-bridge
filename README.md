@@ -6,7 +6,7 @@ This project is just an RS485-MQTT broker, so it needs to be used in conjunction
 
 If you are using HomeAssistant, see the [HomeAssistant Connect Guide (Preparing)]() for more information.
 
-See [MQTT Device Topic Reference (Preparing)]() when connecting to other MQTT clients.
+See [MQTT Device Topic Specification] when connecting to other MQTT clients.
 
 Please submit a pull request for incorrect translations. Thank you.
 
@@ -45,7 +45,7 @@ Linux
 
 ### See also
 
-- [MQTT Device Topic Reference (Preparing)]()
+- [MQTT Device Topic Specification]
 - [Repository of rumqttd (Github)](https://github.com/bytebeamio/rumqtt/tree/main/rumqttd)
 - [How to use the app on the Docker (Preparing)]()
 
@@ -100,3 +100,5 @@ O|realtime_energy_meter|Realtime Energy Meter|Auto Fetch|-
 -|lights|Central Light Switch|-|Developing
 -|doorlock|Digital Door Lock|-|Developing
 <br>
+
+[MQTT Device Topic Specification]: https://github.com/blkis0/universal-wallpad-bridge/wiki/MQTT-Device-Topic-Specification
