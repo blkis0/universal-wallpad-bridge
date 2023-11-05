@@ -171,17 +171,6 @@ fn main() {
 }
 
 fn create_broker(config_path: &str, various: bool) -> (Broker, LinkRx, LinkTx) {
-    if various {
-        tracing_subscriber::fmt()
-            .pretty()
-            .with_line_number(false)
-            .with_file(false)
-            .with_thread_ids(false)
-            .with_thread_names(false)
-            .try_init()
-            .expect("initialized subscriber succesfully");
-    }
-
     let mqtt_config = config::Config::builder()
         .add_source(config::File::with_name(config_path))
         .build()
