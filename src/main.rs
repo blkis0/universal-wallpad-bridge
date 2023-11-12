@@ -34,6 +34,10 @@ fn main() {
     let mut pri_pkt_handlers = Vec::new();
     let mut sec_pkt_handlers = Vec::new();
 
+    if args.various {
+        link_tx.subscribe("#").unwrap();
+    }
+
     match args.manufacturer {
         Manufacturer::HyundaiHT => {
             if !args.features.is_empty() {
